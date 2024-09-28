@@ -1,2 +1,2 @@
 # stratmap
-Strategic mapping application written in Rust
+Strategic mapping application written in C#
