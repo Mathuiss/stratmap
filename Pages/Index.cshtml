@@ -1,7 +1,29 @@
 ﻿@page
+@using stratmap.Models
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div id="map"></div>
+<form method="post">
+    <div class="container" style="max-width: 100%;">
+        <div class="row">
+            <div class="col-lg-9" style="margin: 0px; padding: 0px;">
+                <div id="map"></div>
+                <p>@Model.ExMessage</p>
+            </div>
+            <div class=" col-lg-3 overflow-auto" style="max-height: 800px;">
+                    <ul style="list-style-type: none; padding-top: 6px;">
+                @foreach (Country country in Model.Countries)
+                {
+                            <li class="list-item">
+                                <input type="checkbox" name="cb-@country.Id" id="cb-@country.Id">
+                                <label for="cb-@country.Id">@country.Name</label>
+                            </li>
+                }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="lat-lon-zoom" id="lat-lon-zoom">
+</form>
